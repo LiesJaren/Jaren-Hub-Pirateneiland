@@ -1,0 +1,6 @@
+{
+  "name": "Jarens Eiland",
+  "description": "Speels, tropisch piraten- en avontureneiland voor Jaren met familieplanner, leerspellen, dagelijkse routines, schatkamer en interactieve verhalen.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

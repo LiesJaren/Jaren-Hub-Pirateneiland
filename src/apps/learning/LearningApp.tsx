@@ -4,17 +4,19 @@ import { ArrowLeft, ArrowRight, BookOpen, Calculator, PencilLine, Sparkles } fro
 import { PageHeader } from '../../components/PageHeader';
 import { usePlatform } from '../../platform/PlatformContext';
 import CountGame from './CountGame';
+import PirateMathGame from './PirateMathGame';
 import LetterGame from './LetterGame';
 import WritingGame from './WritingGame';
 
-type SubjectId = 'lezen' | 'rekenen' | 'schrijven';
+type SubjectId = 'lezen' | 'rekenen' | 'schrijven' | 'piratenrekenen';
 type View = 'menu' | SubjectId;
 
 function isSubject(value: string | null): value is SubjectId {
-  return value === 'lezen' || value === 'rekenen' || value === 'schrijven';
+  return value === 'lezen' || value === 'rekenen' || value === 'schrijven' || value === 'piratenrekenen';
 }
 
 const subjects = [
+  { id: 'piratenrekenen' as const, title: 'Piratenrekenen', description: 'Optellen en aftrekken tot 10 en 20. Verdien sterren!', icon: '🏴‍☠️', color: '#fbbf24', tag: 'Nieuw', ready: true, Icon: Calculator },
   {
     id: 'lezen' as const,
     title: 'Lezen',
@@ -69,6 +71,7 @@ export default function LearningApp() {
 
   if (view === 'lezen') return <LetterGame onBack={backToMenu} />;
   if (view === 'rekenen') return <CountGame onBack={backToMenu} />;
+  if (view === 'piratenrekenen') return <PirateMathGame onBack={backToMenu} />;
   if (view === 'schrijven') return <WritingGame onBack={backToMenu} />;
 
   return (
